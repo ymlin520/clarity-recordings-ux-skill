@@ -30,6 +30,10 @@ That means you can use the same visual dashboard on a general HTML page, not onl
 - `SKILL.md` — reusable Hermes skill
 - `demo/index.html` — premium HTML dashboard mockup
 - `examples/payload.example.json` — canonical payload schema
+- `api.php` — JSON endpoint that serves the latest cached payload
+- `refresh-dashboard.php` — refresh job that rebuilds `data/dashboard-cache.json`
+- `config.example.php` — config template for mock/file/remote JSON modes
+- `.github/workflows/daily-refresh.yml` — GitHub Actions scheduler at 08:00 Asia/Taipei daily
 - `references/source-mapping.md` — notes on the target page and portability assumptions
 
 ## Example use cases
@@ -175,3 +179,41 @@ The current environment could confirm the target admin URL exists behind WordPre
 3. 讓前端 HTML 指向 `api.php`
 
 Then wire the front-end to real Clarity-derived JSON.
+
+## 每日早上 8 點自動更新
+
+這個 repo 現在已內建：
+
+- `refresh-dashboard.php`
+- `data/dashboard-cache.json`
+- `.github/workflows/daily-refresh.yml`
+
+### GitHub Actions 排程
+
+排程時間：
+
+- `0 0 * * *`（UTC）
+- 等於 **Asia/Taipei 每天早上 8:00**
+
+每天會自動執行：
+
+```bash
+php refresh-dashboard.php
+```
+
+並更新：
+
+- `data/dashboard-cache.json`
+
+### 一般 PHP 主機 cron
+
+若你部署在一般主機，也可以直接設：
+
+```bash
+0 8 * * * /usr/bin/php /path/to/clarity-ux-insights-skill/refresh-dashboard.php
+```
+
+### 前端讀取位置
+
+- `demo/index.html` → `../data/dashboard-cache.json`
+- `api.php` → 回傳最新 cache JSON

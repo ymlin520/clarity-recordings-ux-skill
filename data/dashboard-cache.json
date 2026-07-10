@@ -1,0 +1,250 @@
+{
+    "status": "ok",
+    "statusLabel": "資料已同步",
+    "statusMessage": "Clarity UX 行為資料已完成更新",
+    "site": "https://example.com/",
+    "projectId": "clarity-project-demo",
+    "rangeLabel": "近 7 天",
+    "summaryCards": [
+        {
+            "label": "總工作階段",
+            "value": "12,840",
+            "sub": "Clarity sessions"
+        },
+        {
+            "label": "錄影數",
+            "value": "1,248",
+            "sub": "Available recordings"
+        },
+        {
+            "label": "平均捲動深度",
+            "value": "62%",
+            "sub": "Average scroll depth"
+        },
+        {
+            "label": "平均活躍時間",
+            "value": "01:42",
+            "sub": "Avg active time"
+        }
+    ],
+    "issueCards": [
+        {
+            "label": "Rage Clicks",
+            "value": "214",
+            "tone": "warn",
+            "hint": "CTA 區塊與按鈕疑似卡住或預期落差"
+        },
+        {
+            "label": "Dead Clicks",
+            "value": "183",
+            "tone": "warn",
+            "hint": "元素看起來可點，但沒有互動結果"
+        },
+        {
+            "label": "Quick Backs",
+            "value": "91",
+            "tone": "bad",
+            "hint": "落地頁內容與搜尋/廣告期待不一致"
+        },
+        {
+            "label": "Excessive Scroll",
+            "value": "67",
+            "tone": "neutral",
+            "hint": "重要 CTA 可能埋太深"
+        }
+    ],
+    "charts": {
+        "labels": [
+            "07/01",
+            "07/02",
+            "07/03",
+            "07/04",
+            "07/05",
+            "07/06",
+            "07/07"
+        ],
+        "sessions": [
+            1820,
+            1910,
+            1882,
+            2011,
+            2140,
+            2092,
+            2204
+        ],
+        "rageClicks": [
+            24,
+            30,
+            28,
+            33,
+            35,
+            29,
+            35
+        ],
+        "deadClicks": [
+            19,
+            22,
+            21,
+            26,
+            30,
+            29,
+            36
+        ],
+        "quickBacks": [
+            10,
+            14,
+            13,
+            12,
+            16,
+            11,
+            15
+        ],
+        "scrollDepth": [
+            58,
+            60,
+            61,
+            59,
+            63,
+            64,
+            62
+        ]
+    },
+    "problemPages": [
+        {
+            "path": "/preorder-online-class/",
+            "sessions": "822",
+            "rageClicks": "62",
+            "deadClicks": "38",
+            "quickBacks": "21",
+            "note": "首屏 CTA 可再上移、價格說明不足"
+        },
+        {
+            "path": "/blog/hermes-agent-guide/",
+            "sessions": "614",
+            "rageClicks": "41",
+            "deadClicks": "29",
+            "quickBacks": "18",
+            "note": "目錄與下載入口辨識度不足"
+        },
+        {
+            "path": "/contact/",
+            "sessions": "282",
+            "rageClicks": "24",
+            "deadClicks": "16",
+            "quickBacks": "11",
+            "note": "表單欄位順序與信任訊號可優化"
+        }
+    ],
+    "recordings": [
+        {
+            "title": "首頁訪客卡在首屏 CTA 附近",
+            "url": "https://clarity.microsoft.com/projects/view/demo/recordings/demo1",
+            "duration": "02:14",
+            "device": "mobile",
+            "country": "Taiwan",
+            "signal": "rage_click"
+        },
+        {
+            "title": "課程頁滑動很深但未點擊購買",
+            "url": "https://clarity.microsoft.com/projects/view/demo/recordings/demo2",
+            "duration": "03:02",
+            "device": "mobile",
+            "country": "Taiwan",
+            "signal": "excessive_scroll"
+        },
+        {
+            "title": "聯絡頁表單填到一半離開",
+            "url": "https://clarity.microsoft.com/projects/view/demo/recordings/demo3",
+            "duration": "01:27",
+            "device": "desktop",
+            "country": "Hong Kong",
+            "signal": "quick_back"
+        }
+    ],
+    "segments": {
+        "devices": [
+            {
+                "label": "mobile",
+                "value": 74,
+                "color": "#63b9d1"
+            },
+            {
+                "label": "desktop",
+                "value": 22,
+                "color": "#5b24ff"
+            },
+            {
+                "label": "tablet",
+                "value": 4,
+                "color": "#f59e0b"
+            }
+        ],
+        "sources": [
+            {
+                "label": "google / organic",
+                "value": 42
+            },
+            {
+                "label": "direct",
+                "value": 27
+            },
+            {
+                "label": "facebook / paid",
+                "value": 18
+            },
+            {
+                "label": "referral",
+                "value": 13
+            }
+        ],
+        "landingPages": [
+            {
+                "label": "/",
+                "value": 31
+            },
+            {
+                "label": "/preorder-online-class/",
+                "value": 22
+            },
+            {
+                "label": "/blog/hermes-agent-guide/",
+                "value": 14
+            },
+            {
+                "label": "/contact/",
+                "value": 9
+            }
+        ]
+    },
+    "recommendations": [
+        {
+            "priority": "high",
+            "title": "把首屏主要 CTA 上移並提高對比",
+            "detail": "課程頁出現偏高 dead click / rage click，推測使用者看見按鈕樣式相近元素但點不到真正行動點。"
+        },
+        {
+            "priority": "high",
+            "title": "縮短首屏到關鍵利益點的距離",
+            "detail": "Quick back 與 excessive scroll 同時偏高，建議在首屏直接交代課程價值與適合對象。"
+        },
+        {
+            "priority": "medium",
+            "title": "聯絡頁表單前置說明要更清楚",
+            "detail": "部分使用者進入聯絡頁後快速返回，建議先放服務說明、流程與回覆時間。"
+        }
+    ],
+    "alerts": [
+        {
+            "tone": "warn",
+            "message": "此 dashboard 須由後端代打 Clarity / 資料橋接；不要把 token 直接寫進前端 HTML。"
+        }
+    ],
+    "dashboardTitle": "網站 UX 行為洞察儀表板",
+    "refreshMeta": {
+        "refreshedAtIso": "2026-07-10T17:19:01+08:00",
+        "refreshedAtLabel": "2026-07-10 17:19:01",
+        "timezone": "Asia/Taipei",
+        "sourceMode": "mock",
+        "dailySchedule": "08:00"
+    }
+}

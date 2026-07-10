@@ -282,6 +282,24 @@ Aim for a premium UX-ops dashboard style:
 - [ ] recommendations are tied to observed issues
 - [ ] empty or partial data still renders a usable page
 - [ ] the same payload shape can be reused in WordPress and plain HTML versions
+- [ ] refresh script can rebuild `data/dashboard-cache.json`
+- [ ] a daily 08:00 scheduler exists (cron or GitHub Actions)
+
+## Daily Auto-Refresh Pattern
+
+When the user asks for daily auto-update, prefer this pattern:
+
+1. add a refresh script such as `refresh-dashboard.php`
+2. normalize the latest payload into `data/dashboard-cache.json`
+3. schedule it for **08:00 Asia/Taipei** via cron or GitHub Actions
+4. let `api.php` or the front-end read the refreshed cache
+5. keep tokens server-side only
+
+Completion criteria:
+- [ ] refresh script exists
+- [ ] cache file exists and is writable
+- [ ] daily 08:00 scheduler exists
+- [ ] front-end reads refreshed data
 
 ## One-Shot Recipes
 

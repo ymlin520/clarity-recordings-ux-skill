@@ -1,17 +1,3 @@
-# Local runtime config
 config.php
-
-# OS / editor
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
-
-# Logs / temp
+.git-askpass.sh
 *.log
-.tmp/
-.cache/
-
-# Local test servers / output
-node_modules/
-vendor/

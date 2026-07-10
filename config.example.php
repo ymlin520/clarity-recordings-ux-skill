@@ -48,6 +48,13 @@ return [
     'public_api_endpoint' => '/api.php',
     'public_site_label' => 'https://example.com/',
 
+    // ===== 每日 8 點自動更新設定 =====
+    'cache_file' => __DIR__ . '/data/dashboard-cache.json',
+    'timezone' => 'Asia/Taipei',
+    'daily_refresh_hour' => 8,
+    'daily_refresh_minute' => 0,
+    'allow_mock_fallback' => true,
+
     // 是否允許跨網域讀取
     'cors_allow_origin' => '*',
 ];

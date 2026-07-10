@@ -37,7 +37,7 @@
 <body>
   <div class="wrap" id="app">載入中...</div>
   <script>
-    async function loadPayload(){ const res = await fetch('../examples/payload.example.json'); return await res.json(); }
+    async function loadPayload(){ const res = await fetch('../data/dashboard-cache.json'); return await res.json(); }
     const esc = s => String(s ?? '');
     function cards(rows, kind){ return rows.map(r => `<div class="card metric ${kind==='issue' ? esc(r.tone||'') : ''}"><div class="label">${esc(r.label)}</div><div class="value">${esc(r.value)}</div><div class="hint">${esc(r.hint || r.sub || '')}</div></div>`).join(''); }
     function trend(labels, s1, s2, s3){ const max=Math.max(...s1,...s2,...s3,1); return labels.map((label,i)=>{ const a=Math.max(8,Math.round(s1[i]/max*170)); const b=Math.max(8,Math.round(s2[i]/max*170)); const c=Math.max(8,Math.round(s3[i]/max*170)); return `<div class="barcol"><div class="bars"><div class="bar" style="height:${a}px"></div><div class="bar b2" style="height:${b}px"></div><div class="bar b3" style="height:${c}px"></div></div><div class="xlabel">${esc(label)}</div></div>`}).join(''); }
@@ -50,9 +50,9 @@
         <section class="hero">
           <div class="card hero-main">
             <div class="pill-row"><span class="pill">Microsoft Clarity</span><span class="pill">UX Insights</span><span class="pill">Reusable HTML Dashboard</span></div>
-            <h1>使用者行為洞察儀表板</h1>
+            <h1>${esc(data.dashboardTitle || '使用者行為洞察儀表板')}</h1>
             <p>這個版本是可直接搬到一般 HTML 網站的 Clarity UX 儀表板外殼。前端只負責顯示整理好的 UX 資料，實際 key / token / project 設定留在後端處理。</p>
-            <div class="meta"><span>狀態：${esc(data.statusLabel)}</span><span>網站：${esc(data.site)}</span><span>Project：${esc(data.projectId)}</span><span>區間：${esc(data.rangeLabel)}</span></div>
+            <div class="meta"><span>狀態：${esc(data.statusLabel)}</span><span>網站：${esc(data.site)}</span><span>Project：${esc(data.projectId)}</span><span>區間：${esc(data.rangeLabel)}</span><span>最後更新：${esc(data.refreshMeta?.refreshedAtLabel || '未更新')}</span></div>
           </div>
           <div class="card hero-side">
             <div><span class="live"><i></i> UX ANALYSIS READY</span><div class="big">${esc(data.summaryCards?.[0]?.value || '')}</div><div class="sub">${esc(data.statusMessage)}</div></div>
